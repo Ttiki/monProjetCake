@@ -49,31 +49,3 @@ configuration relevant for your application.
 The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
-
-
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode
-
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
-
-# Local History for Visual Studio Code
-.history/
-
-# Built Visual Studio Code Extensions
-*.vsix
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
-*.code-.code-workspaceworkspace
-
-# Support for Project snippet scope
-
-# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode

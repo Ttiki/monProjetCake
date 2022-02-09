@@ -39,6 +39,4 @@ nbproject/*
 # Sass preprocessor
 .sass-cache/
 
-.code-workspace
-
 empty

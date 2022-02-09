@@ -1,20 +1,16 @@
 <?php
 namespace App\Controller;
 
-class ArticlesController extends AppController
-{
-    public function afficheAccueil()
-    {
-        die("Bienvenue a tous");
+class ArticlesController extends AppController {
+    public function afficheAccueil() {
+        die ("Bienvenue a tous");
     }
-    public function afficheMessage($libelle)
-    {
+    public function afficheMessage($libelle){
         //die ("Voici la $libelle");
         //debug($this->request->getParam('pass'));
         echo ("Voici la $libelle");
     }
-    public function index()
-    {
+    public function index() {
         debug($this->request->getParam('controller'));
         debug($this->request->getParam('action'));
         debug($this->request->getQuery('categorie'));
