@@ -1,3 +1,3 @@
 <?php
-$this->assign('monBloc','voici le contenu du bloc');
+$this->assign('monTitre','Gestion des articles avec CakePHP');
 ?>
