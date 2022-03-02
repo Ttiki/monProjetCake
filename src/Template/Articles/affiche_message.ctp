@@ -1,3 +1,3 @@
 <?php
-$this->assign('monTitre','Gestion des articles avec CakePHP');
-?>
+    //Assignation de la chaine de caractères gestion des articles au bloc monTitre avec la méthode assign
+

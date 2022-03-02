@@ -1,4 +1,4 @@
 <?php
-$this->assign('monTitre','Accueil');
-echo("Bienvenue $prenom $nom")
-?>
+    $this->assign('MonTitre', 'Mon Accueil');
+    echo "Bienvenue $monNom $monPrenom";
+    ?>
