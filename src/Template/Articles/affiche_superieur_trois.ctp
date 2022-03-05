@@ -11,5 +11,5 @@
         <td><?php echo $lesArticles->first()->name ?></td>
         <td><?php echo $lesArticles->first()->slug ?></td>
     </tr>
-    
+
 </table>

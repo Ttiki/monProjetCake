@@ -1,51 +1,12 @@
-# CakePHP Application Skeleton
+# [University] Cake PHP project
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+This project was made for the course "Conception applications internet" (Web apps conception). This course is available for the third year CS bachelor degree at UPPA.<br/>
+This project is the final project for this course and was main to make us develop a website using the CakePHP framework by following the given instructions.
+We had to learn the whole CakePHP framework by ourselves because there were no explanations on the given instruction nor do we had a lesson to follow and help us.
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+## Why this repo
 
-## Installation
+Why this repo? Well, just like all the other university projects repos on my GitHub or over on the [Stonks Life Inc. organization](https://github.com/Stonks-Life-Inc), I made this repo as a _souvenir_ of this beautiful university years I've spent to this _marvelous and prestigious_ university.
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
-
-If Composer is installed globally, run
-
-```bash
-composer create-project --prefer-dist cakephp/app
-```
-
-In case you want to use a custom app dir name (e.g. `/myapp/`):
-
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
-
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
-
-```bash
-bin/cake server -p 8765
-```
-
-Then visit `http://localhost:8765` to see the welcome page.
-
-## Update
-
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
-
-## Configuration
-
-Read and edit `config/app.php` and setup the `'Datasources'` and any other
-configuration relevant for your application.
-
-## Layout
-
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+![UPPA's logo](https://upload.wikimedia.org/wikipedia/fr/thumb/4/41/Logo_UPPA.svg/250px-Logo_UPPA.svg.png)

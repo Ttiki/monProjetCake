@@ -8,11 +8,11 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-<!--    <link href="../assets/css/bootstrap.css" rel="stylesheet">-->
+    <!--    <link href="../assets/css/bootstrap.css" rel="stylesheet">-->
     <?php
-        echo $this->Html->css('bootstrap');
-        echo $this->Html->css('bootstrap-responsive');
-        echo $this->fetch('css');
+    echo $this->Html->css('bootstrap');
+    echo $this->Html->css('bootstrap-responsive');
+    echo $this->fetch('css');
     ?>
 
     <style type="text/css">
@@ -23,7 +23,7 @@
     </style>
 
     <!-- Lien à modifier ici -->
-<!--    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">-->
+    <!--    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">-->
 </head>
 
 <body>
@@ -36,9 +36,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-<!--            <a class="brand" href="#">Project name</a>-->
+            <!--            <a class="brand" href="#">Project name</a>-->
             <a class="brand" href="#"><?php //echo Création du bloc monTitre avec fetch
-                echo $this->fetch('MonTitre');?></a>
+                echo $this->fetch('MonTitre'); ?></a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="active"><a href="#">Home</a></li>

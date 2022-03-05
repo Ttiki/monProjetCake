@@ -1,23 +1,28 @@
 <?php
+
 namespace App\Controller;
-use App\Controller\AppController;
-use Cake\View\View;
+
 use Cake\ORM\TableRegistry;
+use Cake\View\View;
 
-class ArticlesController extends AppController {
+class ArticlesController extends AppController
+{
 
-    public function afficheAccueil($nom, $prenom){
+    public function afficheAccueil($nom, $prenom)
+    {
         $this->set('monNom', $nom);
         $this->set('monPrenom', $prenom);
 
     }
 
-    public function afficheMessage($libelle){
+    public function afficheMessage($libelle)
+    {
         $this->set('MonTitre', "Accueil");
         //echo ("Voici $libelle");
     }
 
-    public function index() {
+    public function index()
+    {
         debug($this->request->getParam('controller'));
         debug($this->request->getParam('action'));
         debug($this->request->getQuery('categorie'));
@@ -28,54 +33,61 @@ class ArticlesController extends AppController {
         die('');
     }
 
-    public function afficherEgalTrois() {
+    public function afficherEgalTrois()
+    {
         $objQuery = $this->Articles->find();
-        $objQuery->select(['id','name','slug']);
+        $objQuery->select(['id', 'name', 'slug']);
         $objQuery->where(['id = 3']);
-        $lArticle=$objQuery->first();
-        $this->set('lArticle',$lArticle);
+        $lArticle = $objQuery->first();
+        $this->set('lArticle', $lArticle);
     }
 
-    public function afficherSuperieurTrois() {
+    public function afficherSuperieurTrois()
+    {
         $objQuery = $this->Articles->find();
-        $objQuery->select(['id','name','slug']);
+        $objQuery->select(['id', 'name', 'slug']);
         $objQuery->where(['id > 3']);
         $lesArticles = $objQuery->all();
 //        debug($lesArticles);
         $this->set('lesArticles', $lesArticles);
     }
 
-    public function requeteUn() {
-        $objQuery = $this->Articles->find() ;
-        $objQuery->select(['id','name','slug','created']);
+    public function requeteUn()
+    {
+        $objQuery = $this->Articles->find();
+        $objQuery->select(['id', 'name', 'slug', 'created']);
         $lesArticles = $objQuery->all();
         $this->set('lesArticles', $lesArticles);
     }
 
-    public function requeteDeux() {
-        $objQuery = $this->Articles->find() ;
-        $objQuery->select(['name','created']);
+    public function requeteDeux()
+    {
+        $objQuery = $this->Articles->find();
+        $objQuery->select(['name', 'created']);
         $objQuery->limit(2);
         $lesArticles = $objQuery->all();
         $this->set('lesArticles', $lesArticles);
     }
 
-    public function requeteTrois() {
-        $objQuery = $this->Articles->find() ;
+    public function requeteTrois()
+    {
+        $objQuery = $this->Articles->find();
         $objQuery->select(['id']);
         $objQuery->where(['id = 3']);
         $lesArticles = $objQuery->all();
         $this->set('lesArticles', $lesArticles);
     }
 
-    public function testMethodesMagiques(){
-        $objTableArticles = $this->Articles ;
-        $objQuery=$objTableArticles->findById('1');
-        $recupEntityArticle= $objQuery->first() ;
+    public function testMethodesMagiques()
+    {
+        $objTableArticles = $this->Articles;
+        $objQuery = $objTableArticles->findById('1');
+        $recupEntityArticle = $objQuery->first();
         debug($recupEntityArticle);
     }
 
-    public function afficheUnArticle() {
+    public function afficheUnArticle()
+    {
         if ($this->request->is('POST')) {
             date_default_timezone_set('Europe/Paris');
 
@@ -84,14 +96,14 @@ class ArticlesController extends AppController {
             $tabPOST = $this->request->getData();
 
             $isUniqueName = true;
-            foreach($lesArticles as $article) {
-                if($article['name'] == $tabPOST['name']){
+            foreach ($lesArticles as $article) {
+                if ($article['name'] == $tabPOST['name']) {
                     $isUniqueName = false;
                     break;
                 }
 
             }
-            if($isUniqueName) {
+            if ($isUniqueName) {
                 echo 'Cet article est inexistant dans la base, il va etre cree';
                 $objArticlesTable = $this->Articles;
                 $objNvArticleEntity = $objArticlesTable->newEntity();
@@ -100,7 +112,7 @@ class ArticlesController extends AppController {
                 $objNvArticleEntity->created = date('Y-m-d h:i:s');
                 $objArticlesTable->save($objNvArticleEntity);
                 $message = "Article ajouté";
-            }else {
+            } else {
                 $message = "Un Article avec le même nom existe déjà !";
             }
             $this->set('message', $message);
@@ -110,27 +122,31 @@ class ArticlesController extends AppController {
         }
     }
 
-    public function AfficheUnArticleGet($id) {
-        $objTableArticles = $this->Articles ;
-        $objQuery=$objTableArticles->findById($id);
+    public function AfficheUnArticleGet($id)
+    {
+        $objTableArticles = $this->Articles;
+        $objQuery = $objTableArticles->findById($id);
         $recupEntityArticle = $objQuery->first();
         $this->set('currentId', $id);
         $this->set('recupArticles', $recupEntityArticle);
     }
 
-    public function SupprimerArticle3() {
+    public function SupprimerArticle3()
+    {
         $objTableArticles = $this->Articles;
         $objArticleEntity = $objTableArticles->get(3);
         $objTableArticles->delete($objArticleEntity);
     }
 
-    public function SupprimerArticleUrl($id) {
+    public function SupprimerArticleUrl($id)
+    {
         $objTableArticles = $this->Articles;
         $objArticleEntity = $objTableArticles->get($id);
         $objTableArticles->delete($objArticleEntity);
     }
 
-    public function SupprimerArticleForm() {
+    public function SupprimerArticleForm()
+    {
         if ($this->request->is('POST')) {
             echo 'Suppression de l\'article';
             $tabPOST = $this->request->getData();
@@ -144,27 +160,30 @@ class ArticlesController extends AppController {
         }
     }
 
-    public function afficheLiaisons(){
-        $objTableArticles = $this->Articles ;
+    public function afficheLiaisons()
+    {
+        $objTableArticles = $this->Articles;
         $objQuery = $objTableArticles->find();
-        $objQuery->contain(['categs','emplacements']);
-        $objEntityArticle=$objQuery->all();
+        $objQuery->contain(['categs', 'emplacements']);
+        $objEntityArticle = $objQuery->all();
         $this->set('objEntityArticle', $objEntityArticle);
     }
 
-    public function afficheArticlesFournisseurs() {
-        $objTableArticles = $this->Articles ;
+    public function afficheArticlesFournisseurs()
+    {
+        $objTableArticles = $this->Articles;
         $objQuery = $objTableArticles->find();
         $objQuery->contain(['fournisseurs']);
-        $objEntityArticle=$objQuery->all();
+        $objEntityArticle = $objQuery->all();
         $this->set('objEntityArticle', $objEntityArticle);
     }
 
-    public function afficheUnArticleFournisseur($id){
-        $objTableArticles = $this->Articles ;
+    public function afficheUnArticleFournisseur($id)
+    {
+        $objTableArticles = $this->Articles;
         $objQuery = $objTableArticles->find();
         $objQuery->contain(['fournisseurs']);
-        $objQuery->where(['id = '.$id]);
+        $objQuery->where(['id = ' . $id]);
         $lesArticles = $objQuery->first();
         $this->set('lesArticles', $lesArticles);
 

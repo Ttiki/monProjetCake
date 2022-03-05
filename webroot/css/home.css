@@ -216,12 +216,15 @@ hr {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 .icon.support {
     font-size: 60px;
 }
+
 .icon.docs {
     font-size: 57px;
 }
+
 .icon.training {
     font-size: 39px;
 }

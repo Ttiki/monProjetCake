@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 28 Février 2022 à 16:38
+-- Généré le :  Sam 05 Mars 2022 à 14:49
 -- Version du serveur :  5.7.11
--- Version de PHP :  7.0.3
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -86,7 +86,7 @@ CREATE TABLE `categs` (
 
 INSERT INTO `categs` (`id`, `name`, `created`) VALUES
 (1, 'Jeu', '2018-02-22 10:58:22'),
-(2, 'DÃ©coration', '2018-02-22 10:58:22'),
+(2, 'Décoration', '2018-02-22 10:58:22'),
 (3, 'Habillement', '2018-02-22 10:58:43');
 
 -- --------------------------------------------------------
@@ -129,9 +129,9 @@ CREATE TABLE `fournisseurs` (
 --
 
 INSERT INTO `fournisseurs` (`id`, `name`, `created`, `adresse`, `cp`, `ville`) VALUES
-(1, 'Toys Rus', '2018-02-22 17:52:25', 'rue de la gare', 64000, 'PAU'),
+(1, 'Toys Rus', '2018-02-22 17:52:25', 'rue de la gare', 64000, 'Pau'),
 (2, 'Jouets clubs', '2018-02-22 17:52:25', 'rue de gascogne', 64000, 'Pau'),
-(3, 'PÃ¨re Noel', '2018-02-22 17:52:47', 'rue de laponie', 64000, 'PAU');
+(3, 'Père Noël', '2018-02-22 17:52:47', 'rue de laponie', 64000, 'Pau');
 
 --
 -- Index pour les tables exportées
