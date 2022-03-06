@@ -9,8 +9,8 @@
         <th>Slug</th>
     </tr>
     <tr>
-        <td> <?php echo $recupArticles->id ?></td>
-        <td><?php echo $recupArticles->name ?></td>
-        <td><?= $recupArticles->slug ?></td>
+        <td> <?php echo $recupArticles['id'] ?></td>
+        <td><?php echo $recupArticles['name'] ?></td>
+        <td><?= $recupArticles['slug'] ?></td>
     </tr>
 </table>

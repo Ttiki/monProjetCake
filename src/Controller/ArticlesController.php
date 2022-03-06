@@ -6,8 +6,7 @@ class ArticlesController extends AppController
 {
 
     //Affiche le nom et prenom sur la page d'accueil
-    // (URL=http://localhost/monProjetCake/Articles/afficherAccueil?nom=Combier&prenom=Clement
-
+    // (URL=http://localhost/university-cakePHP-project/Articles/AfficherAccueil?nom=combier&prenom=clement)
     public function afficherAccueil($nom, $prenom)
     {
         debug($nom, $prenom);
@@ -16,11 +15,15 @@ class ArticlesController extends AppController
 
     }
 
+    //Affiche un simple message sur la page.
+    //(URL=http://localhost/university-cakePHP-project/Articles/AfficherMessage/helloWorld)
     public function afficherMessage($libelle)
     {
         $this->set('libelle', $libelle);
     }
 
+    //Méthode test. Nous utilisons la commande debu pour afficher des messages concernant
+    //Chacun des paramètres.
     public function index()
     {
         debug($this->request->getParam('controller'));
@@ -33,6 +36,10 @@ class ArticlesController extends AppController
         die('');
     }
 
+    //Méthode simple qui permet de faire un requête SQL-like pour afficher les
+    //articles dont l'id = 3. Nous affichons l'id, le nom et le slug.
+    //Si plusieurs résultats sont retournés, nous ne renvoyons que le premier sur
+    //la page ($objQuery->first())
     public function afficherEgalTrois()
     {
         $objQuery = $this->Articles->find();
@@ -42,16 +49,20 @@ class ArticlesController extends AppController
         $this->set('lArticle', $lArticle);
     }
 
+    //Même principe que la méthode ci-dessus. Nous affichons les articles dont
+    //l'id >= 3. Nous renvoyons ici un tableau d'articles que nous parcourirons sur la page
+    //(afficher_superieur_trois.ctp) pour afficher les informations de chaque article
+    //séparément.
     public function afficherSuperieurTrois()
     {
         $objQuery = $this->Articles->find();
         $objQuery->select(['id', 'name', 'slug']);
         $objQuery->where(['id > 3']);
         $lesArticles = $objQuery->all();
-//        debug($lesArticles);
         $this->set('lesArticles', $lesArticles);
     }
 
+    //Première requête pour la question 12
     public function requeteUn()
     {
         $objQuery = $this->Articles->find();
@@ -60,6 +71,7 @@ class ArticlesController extends AppController
         $this->set('lesArticles', $lesArticles);
     }
 
+    //Deuxième requête pour la question 12
     public function requeteDeux()
     {
         $objQuery = $this->Articles->find();
@@ -69,6 +81,7 @@ class ArticlesController extends AppController
         $this->set('lesArticles', $lesArticles);
     }
 
+    //Troisième requête pour la question 12
     public function requeteTrois()
     {
         $objQuery = $this->Articles->find();
@@ -78,6 +91,7 @@ class ArticlesController extends AppController
         $this->set('leNbArticles', $leNbArticles);
     }
 
+    //Méthode test pour tester les méthodes magiques de CakePHP
     public function testMethodesMagiques()
     {
         $objTableArticles = $this->Articles;
@@ -86,7 +100,12 @@ class ArticlesController extends AppController
         debug($recupEntityArticle);
     }
 
-    public function afficherUnArticle()
+    //Cette méthode affiche un formulaire à l'utilisateur où il peut renseigner
+    //Le nom ainsi que le slug d'un article pour le chercher. Si on le trouve, on l'affiche.
+    //Sinon on l'ajoute à notre BD.
+    //Défaut: afficherUnArticle
+    //URL:http://localhost/university-cakePHP-project/Articles/afficherAjouterArticle>
+    public function afficherAjouterArticle()
     {
         if ($this->request->is('POST')) {
             date_default_timezone_set('Europe/Paris');
@@ -122,7 +141,8 @@ class ArticlesController extends AppController
         }
     }
 
-    public function AfficherUnArticleGet($id)
+    //Affiche un article en utilisant la méthode GET
+    public function afficherUnArticleGet($id)
     {
         $objTableArticles = $this->Articles;
         $objQuery = $objTableArticles->findById($id);
@@ -131,21 +151,27 @@ class ArticlesController extends AppController
         $this->set('recupArticles', $recupEntityArticle);
     }
 
-    public function SupprimerArticle3()
+    //Supprime l'article 3
+    //La valeur ici est codé en dure
+    public function supprimerArticle3()
     {
         $objTableArticles = $this->Articles;
         $objArticleEntity = $objTableArticles->get(3);
         $objTableArticles->delete($objArticleEntity);
     }
 
-    public function SupprimerArticleUrl($id)
+    //Supprimer un article selon son id depuis un argument se trouvant dans
+    //l'URL.
+    public function supprimerArticleUrl($id)
     {
         $objTableArticles = $this->Articles;
         $objArticleEntity = $objTableArticles->get($id);
         $objTableArticles->delete($objArticleEntity);
     }
 
-    public function SupprimerArticleForm()
+    //Affiche un formulaire pour l'utilisateur afin qu'il choisisse l'article
+    //à supprimer en rentrant les informations de l'article.
+    public function supprimerArticleForm()
     {
         if ($this->request->is('POST')) {
             echo 'Suppression de l\'article';
@@ -155,8 +181,6 @@ class ArticlesController extends AppController
             $objTableArticles = $this->Articles;
             $objArticleEntity = $objTableArticles->get($tabPOST['id']);
             $objTableArticles->delete($objArticleEntity);
-//            $this->set('message', $message);
-//            $this->render('supprimer_article');
         }
     }
 
