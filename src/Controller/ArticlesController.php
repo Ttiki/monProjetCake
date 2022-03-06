@@ -2,23 +2,23 @@
 
 namespace App\Controller;
 
-use Cake\ORM\TableRegistry;
-use Cake\View\View;
-
 class ArticlesController extends AppController
 {
 
-    public function afficheAccueil($nom, $prenom)
+    //Affiche le nom et prenom sur la page d'accueil
+    // (URL=http://localhost/monProjetCake/Articles/afficherAccueil?nom=Combier&prenom=Clement
+
+    public function afficherAccueil($nom, $prenom)
     {
-        $this->set('monNom', $nom);
-        $this->set('monPrenom', $prenom);
+        debug($nom, $prenom);
+        $this->set('nom', $nom);
+        $this->set('prenom', $prenom);
 
     }
 
-    public function afficheMessage($libelle)
+    public function afficherMessage($libelle)
     {
-        $this->set('MonTitre', "Accueil");
-        //echo ("Voici $libelle");
+        $this->set('libelle', $libelle);
     }
 
     public function index()
@@ -74,8 +74,8 @@ class ArticlesController extends AppController
         $objQuery = $this->Articles->find();
         $objQuery->select(['id']);
         $objQuery->where(['id = 3']);
-        $lesArticles = $objQuery->all();
-        $this->set('lesArticles', $lesArticles);
+        $leNbArticles = $objQuery->count();
+        $this->set('leNbArticles', $leNbArticles);
     }
 
     public function testMethodesMagiques()
@@ -86,7 +86,7 @@ class ArticlesController extends AppController
         debug($recupEntityArticle);
     }
 
-    public function afficheUnArticle()
+    public function afficherUnArticle()
     {
         if ($this->request->is('POST')) {
             date_default_timezone_set('Europe/Paris');
@@ -122,7 +122,7 @@ class ArticlesController extends AppController
         }
     }
 
-    public function AfficheUnArticleGet($id)
+    public function AfficherUnArticleGet($id)
     {
         $objTableArticles = $this->Articles;
         $objQuery = $objTableArticles->findById($id);
@@ -160,7 +160,7 @@ class ArticlesController extends AppController
         }
     }
 
-    public function afficheLiaisons()
+    public function afficherLiaisons()
     {
         $objTableArticles = $this->Articles;
         $objQuery = $objTableArticles->find();
@@ -169,7 +169,7 @@ class ArticlesController extends AppController
         $this->set('objEntityArticle', $objEntityArticle);
     }
 
-    public function afficheArticlesFournisseurs()
+    public function afficherArticlesFournisseurs()
     {
         $objTableArticles = $this->Articles;
         $objQuery = $objTableArticles->find();
@@ -178,7 +178,7 @@ class ArticlesController extends AppController
         $this->set('objEntityArticle', $objEntityArticle);
     }
 
-    public function afficheUnArticleFournisseur($id)
+    public function afficherUnArticleFournisseur($id)
     {
         $objTableArticles = $this->Articles;
         $objQuery = $objTableArticles->find();
